@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">BaseApp</string>
+
+    /**
+    * Marker : Alerts
+    * =============================================================================================
+    */
+
+    <string name="alert_message_generic">Sorry, an error has occurred. Please, try again later.</string>
+    <string name="alert_message_no_internet">Please make sure you are connected to the internet and try again.</string>
+    <string name="alert_message_unauthorized">Please, check your credentials and try again.</string>
+
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_login">Login</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_try_again">Try again</string>
+    <string name="action_learn_more">Learn More</string>
+    <string name="action_save">Save</string>
+
+</resources>
