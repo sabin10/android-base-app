@@ -34,7 +34,7 @@ class WelcomeActivity : SABBaseActivity() {
     }
 
     override fun getFragmentByTag(TAG: String): SABBaseFragment? {
-        showToast(TAG)
+//        showToast(TAG)
         return when (TAG) {
             Constants.FragmentTags.TAG_FRAGMENT_LOGIN_DONOR -> LoginDonorFragment.newInstance()
             Constants.FragmentTags.TAG_FRAGMENT_LOGIN_ASKER -> LoginAskerFragment.newInstance()
