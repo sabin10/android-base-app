@@ -30,5 +30,9 @@ class Offer (
 
     @SerializedName("description")
     @Expose
-    var description: String
+    var description: String,
+
+    @SerializedName("expired")
+    @Expose
+    var expired: Boolean
 )

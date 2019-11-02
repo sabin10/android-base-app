@@ -19,7 +19,5 @@ class DonateDonorFragment : SABBaseFragment() {
         return inflater.inflate(R.layout.fragment_donate_donor, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
+
 }
