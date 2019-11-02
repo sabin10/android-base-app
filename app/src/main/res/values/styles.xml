@@ -45,9 +45,27 @@
         <item name="android:focusable">true</item>
     </style>
 
+    <style name="tv_label_light_gray">
+        <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/rubik_regular</item>
+        <item name="android:textColor">@color/LightGray</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
     <style name="tv_as_btn_grey" parent="tv_as_btn">
         <item name="android:textColor">@color/MediumGray</item>
         <item name="android:textSize">@dimen/material_text_subhead</item>
+    </style>
+
+    <style name="et_multiline">
+        <item name="android:lines">3</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:maxLines">5</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:background">@drawable/et_style</item>
+        <item name="android:fontFamily">@font/rubik_regular</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>
