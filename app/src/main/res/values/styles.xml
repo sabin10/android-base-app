@@ -8,18 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="textInputEditText" parent="AppTheme">
-        <item name="android:background">@drawable/background_edit_text</item>
+    <style name="textInputEditText">
+        <item name="android:background">@drawable/auth_input_style</item>
+        <item name="android:padding">14dp</item>
         <item name="android:textColor">@color/Black</item>
-        <item name="android:textColorHint">@color/MediumGray</item>
+        <item name="android:textColorHint">@color/LightGray</item>
         <item name="android:textSize">@dimen/material_text_title</item>
     </style>
 
     <!--BUTTONS-->
-    <style name="btn_green_style" parent="AppTheme">
-        <item name="android:padding">@dimen/default_padding_half</item>
+    <style name="btn_green_style">
+        <item name="android:padding">12dp</item>
         <item name="android:textColor">@color/White</item>
-        <item name="android:background">@color/Green</item>
+        <item name="android:textSize">@dimen/material_text_subhead</item>
+        <item name="android:background">@drawable/round_green_btn</item>
 
     </style>
 
