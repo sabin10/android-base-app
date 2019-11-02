@@ -78,26 +78,6 @@ class LoginDonorFragment : SABBaseFragment() {
     }
 
     private fun toHomeDonor() {
-        val intent = Intent(context, HomeDonorActivity::class.java)
-        startActivity(intent)
-        activity?.finish()
-
-//        AuthRepository.loginAsDonor(
-//            edt_email.text.trim().toString(),
-//            edt_password.text.trim().toString()
-//        )
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe ({ response ->
-//                "login success".logErrorMessage()
-//                "response = ${response.toString()}".logErrorMessage()
-//            }, {error ->
-//                "login error=$error".logErrorMessage()
-//            })
-//            .addTo(autoDisposable)
-//
-//
-
 
         val service =
             RetrofitClientInstance.retrofitInstance?.create<AuthenticationAPI>(AuthenticationAPI::class.java)
@@ -121,6 +101,10 @@ class LoginDonorFragment : SABBaseFragment() {
                             UtilSharedPreferences.saveUser(ctx,it)
                         }
                     }
+
+                    val intent = Intent(context, HomeDonorActivity::class.java)
+                    startActivity(intent)
+                    activity?.finish()
 
                 }else {
                     Toast.makeText(context,"code=${response.code()} message=${response.message()}",Toast.LENGTH_SHORT).show()
