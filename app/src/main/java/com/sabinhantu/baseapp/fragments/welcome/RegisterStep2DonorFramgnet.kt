@@ -5,9 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.google.gson.JsonObject
 import com.sabinhantu.baseapp.R
+import com.sabinhantu.baseapp.data.RetrofitClientInstance
+import com.sabinhantu.baseapp.data.api.AuthenticationAPI
+import com.sabinhantu.baseapp.data.api.RegisterDonorApi
+import com.sabinhantu.baseapp.data.repository.AuthRepository
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
+import com.sabinhantu.baseapp.helper.logErrorMessage
 import kotlinx.android.synthetic.main.fragment_register_step_2_donor.*
+import kotlinx.android.synthetic.main.fragment_register_step_2_donor.btn_register
+import kotlinx.android.synthetic.main.fragment_register_step_2_donor.edt_name
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterStep2DonorFramgnet : SABBaseFragment() {
 
@@ -30,7 +41,55 @@ class RegisterStep2DonorFramgnet : SABBaseFragment() {
     private fun initViews() {
 
         btn_register.setOnClickListener {
-            Toast.makeText(context,"REGISTER AS DONOR", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context,"REGISTER AS DONOR", Toast.LENGTH_SHORT).show()
+
+            if(
+                edt_password.text.trim().toString() ==
+                        edt_password_confirm.text.trim().toString()
+                    ){
+
+                val data = RegisterDonorApi(
+                    name = edt_name.text.trim().toString(),
+                    email = edt_email.text.trim().toString(),
+                    type = "company",
+                    cui = edt_cui.text.trim().toString(),
+                    password = edt_password.text.trim().toString(),
+                    latitudeX = null,
+                    latitudeY = null,
+                    phoneNumber = edt_phone.text.toString(),
+                    picture = null
+                )
+
+                val service =
+                    RetrofitClientInstance.retrofitInstance?.create<AuthenticationAPI>(AuthenticationAPI::class.java)
+                val call = service?.registerAsDonor(data)
+
+                call?.enqueue(object : Callback<JsonObject> {
+                    override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                        "response=${response.body()}".logErrorMessage()
+                        Toast.makeText(
+                            context,
+                            "Register SUCCESSS",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                        Toast.makeText(
+                            context,
+                            "Something went wrong ${t.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                })
+
+            } else {
+                Toast.makeText(context, " Passwords don't match ", Toast.LENGTH_SHORT).show()
+            }
+
+
+
         }
     }
 
