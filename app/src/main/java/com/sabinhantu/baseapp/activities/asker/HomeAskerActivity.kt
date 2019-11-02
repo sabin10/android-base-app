@@ -1,20 +1,17 @@
-package com.sabinhantu.baseapp.activities.donor
+package com.sabinhantu.baseapp.activities.asker
 
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.SyncStateContract
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.sabinhantu.baseapp.R
 import com.sabinhantu.baseapp.activities.SABBaseActivity
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
-import com.sabinhantu.baseapp.fragments.donor.DonateDonorFragment
-import com.sabinhantu.baseapp.fragments.donor.ProfileDonorFragment
-import com.sabinhantu.baseapp.fragments.donor.RaisesDonorFragment
+import com.sabinhantu.baseapp.fragments.asker.AskAskerFragment
+import com.sabinhantu.baseapp.fragments.asker.DonationsAskerFragment
+import com.sabinhantu.baseapp.fragments.asker.ProfileAskerFragment
 import com.sabinhantu.baseapp.helper.Constants
 
-class HomeDonorActivity : SABBaseActivity() {
+class HomeAskerActivity : SABBaseActivity() {
 
     lateinit var bottomNav: AHBottomNavigation
 
@@ -22,33 +19,32 @@ class HomeDonorActivity : SABBaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_donor)
 
-        // start with raises fragment
-        onAddFragment(Constants.FragmentTags.TAG_FRAGMENT_RAISES_DONOR)
+        // start with donations fragment
+        onAddFragment(Constants.FragmentTags.TAG_FRAGMENT_DONATIONS_ASKER)
         bottomNav = findViewById(R.id.bottom_navigation_donor)
         setBottomNavigation()
     }
 
     override fun getFragmentContainer(): Int? {
-        return R.id.fragments_container_home_donor
+        return R.id.fragments_container_home_asker
     }
 
     override fun getFragmentByTag(TAG: String): SABBaseFragment? {
         return when (TAG) {
-            Constants.FragmentTags.TAG_FRAGMENT_RAISES_DONOR -> RaisesDonorFragment.newInstance()
-            Constants.FragmentTags.TAG_FRAGMENT_DONATE_DONOR -> DonateDonorFragment.newInstance()
-            Constants.FragmentTags.TAG_FRAGMENT_PROFILE_DONOR -> ProfileDonorFragment.newInstance()
+            Constants.FragmentTags.TAG_FRAGMENT_DONATIONS_ASKER -> DonationsAskerFragment.newInstance()
+            Constants.FragmentTags.TAG_FRAGMENT_ASK_ASKER -> AskAskerFragment.newInstance()
+            Constants.FragmentTags.TAG_FRAGMENT_PROFILE_ASKER -> ProfileAskerFragment.newInstance()
             else -> null
         }
-
     }
 
     // Bottom Nav
     private fun setBottomNavigation() {
-        val raisesItem = AHBottomNavigationItem("Raises", R.drawable.ic_view_headline_24, R.color.DarkGray)
-        val donateItem = AHBottomNavigationItem("Donate", R.drawable.ic_add_circle_24, R.color.DarkGray)
+        val donationsItem = AHBottomNavigationItem("Donations", R.drawable.ic_view_headline_24, R.color.DarkGray)
+        val askItem = AHBottomNavigationItem("Ask", R.drawable.ic_add_circle_24, R.color.DarkGray)
         val profileItem = AHBottomNavigationItem("Profile", R.drawable.ic_person_24, R.color.DarkGray)
-        bottomNav.addItem(raisesItem)
-        bottomNav.addItem(donateItem)
+        bottomNav.addItem(donationsItem)
+        bottomNav.addItem(askItem)
         bottomNav.addItem(profileItem)
 
         bottomNav.setDefaultBackgroundColor(resources.getColor(R.color.White))
@@ -62,14 +58,12 @@ class HomeDonorActivity : SABBaseActivity() {
             if (wasSelected)
                 return@setOnTabSelectedListener false
             when (position) {
-                0 -> onReplaceFragment(Constants.FragmentTags.TAG_FRAGMENT_RAISES_DONOR)
-                1 -> onReplaceFragment(Constants.FragmentTags.TAG_FRAGMENT_DONATE_DONOR)
-                2 -> onReplaceFragment(Constants.FragmentTags.TAG_FRAGMENT_PROFILE_DONOR)
+                0 -> onReplaceFragment(Constants.FragmentTags.TAG_FRAGMENT_DONATIONS_ASKER)
+                1 -> onReplaceFragment(Constants.FragmentTags.TAG_FRAGMENT_ASK_ASKER)
+                2 -> onReplaceFragment(Constants.FragmentTags.TAG_FRAGMENT_PROFILE_ASKER)
             }
             return@setOnTabSelectedListener  true
         }
 
     }
-
-
 }

@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/White"
-            tools:context=".activities.donor.HomeDonorActivity">
+            tools:context=".activities.asker.HomeAskerActivity">
 
             <TextView
                 android:id="@+id/tv_title"
