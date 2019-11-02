@@ -18,8 +18,6 @@ import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.fragment_login_asker.*
 import kotlinx.android.synthetic.main.fragment_login_asker.edt_email
 import kotlinx.android.synthetic.main.fragment_login_asker.edt_password
-import kotlinx.android.synthetic.main.fragment_login_donor.*
-import kotlinx.android.synthetic.main.fragment_login_donor.btn_login
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -57,7 +55,11 @@ class LoginAskerFragment : SABBaseFragment() {
         }
 
         tv_login_as_donor?.setOnClickListener {
-            onReplaceFragmentByTAG(Constants.FragmentTags.TAG_FRAGMENT_LOGIN_DONOR)
+            onAddFragmentByTAG(Constants.FragmentTags.TAG_FRAGMENT_LOGIN_DONOR)
+        }
+
+        tv_register.setOnClickListener {
+            onAddFragmentByTAG(Constants.FragmentTags.TAG_FRAGMENT_REGISTER_STEP_1)
         }
     }
 

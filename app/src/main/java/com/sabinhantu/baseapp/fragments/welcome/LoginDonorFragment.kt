@@ -18,7 +18,9 @@ import kotlinx.android.synthetic.main.fragment_login_donor.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+import kotlinx.android.synthetic.main.fragment_login_donor.*
+import kotlinx.android.synthetic.main.fragment_login_donor.btn_login
+import kotlinx.android.synthetic.main.fragment_login_donor.tv_register
 
 class LoginDonorFragment : SABBaseFragment() {
     companion object {
@@ -55,7 +57,11 @@ class LoginDonorFragment : SABBaseFragment() {
         }
 
         tv_login_as_asker.setOnClickListener {
-            onReplaceFragmentByTAG(Constants.FragmentTags.TAG_FRAGMENT_LOGIN_ASKER)
+            onAddFragmentByTAG(Constants.FragmentTags.TAG_FRAGMENT_LOGIN_ASKER)
+        }
+
+        tv_register.setOnClickListener {
+            onAddFragmentByTAG(Constants.FragmentTags.TAG_FRAGMENT_REGISTER_STEP_1)
         }
     }
 
