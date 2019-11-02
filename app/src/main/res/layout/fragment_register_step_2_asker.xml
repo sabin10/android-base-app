@@ -19,16 +19,28 @@
             android:background="@color/White"
             tools:context=".activities.welcome.WelcomeActivity">
 
+            <TextView
+                android:id="@+id/tv_register_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_padding_small"
+                android:text="Register as Asker"
+                android:layout_marginTop="48dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/title_fragment_welcome"/>
+
 
             <LinearLayout
                 android:id="@+id/lly_credentials"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="128dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginStart="@dimen/default_padding_double"
                 android:layout_marginEnd="@dimen/default_padding_double"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_register_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 

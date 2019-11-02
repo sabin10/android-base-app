@@ -12,12 +12,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:text="Choose"
-        android:textSize="@dimen/material_text_title"
+        android:text="Who are you?"
+        android:textSize="@dimen/material_text_headline"
         app:layout_constraintBottom_toTopOf="@id/btn_register_donor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/DarkGray"
+        style="@style/tv_as_btn_grey"/>
 
     <Button
         android:id="@+id/btn_register_donor"
@@ -25,9 +27,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_padding_double"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="238dp"
         android:layout_marginEnd="@dimen/default_padding_double"
-        android:text="Company"
+        android:text="Donor"
         app:iconGravity="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,14 +41,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="or"
+        android:textSize="20sp"
+        android:textColor="@color/DarkGray"
         android:layout_marginTop="@dimen/default_padding"
         app:layout_constraintTop_toBottomOf="@id/btn_register_donor"
         app:layout_constraintStart_toStartOf="@id/btn_register_donor"
-        app:layout_constraintEnd_toEndOf="@id/btn_register_donor"/>
+        app:layout_constraintEnd_toEndOf="@id/btn_register_donor"
+        style="@style/tv_as_btn_grey"/>
 
     <Button
         android:id="@+id/btn_register_person"
-        android:text="Person"
+        android:text="Asker"
         style="@style/btn_green_style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
