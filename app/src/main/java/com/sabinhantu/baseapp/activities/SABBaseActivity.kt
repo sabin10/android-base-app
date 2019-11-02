@@ -1,21 +1,17 @@
 package com.sabinhantu.baseapp.activities
 
 import android.content.Context
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
-import com.sabinhantu.SABApplication
 import com.sabinhantu.baseapp.R
-import com.sabinhantu.baseapp.data.lifecycle.SABAutoDisposable
+import com.sabinhantu.baseapp.data.lifecycle.AutoDisposable
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
 import com.sabinhantu.baseapp.interfaces.*
 import com.sabinhantu.baseapp.widgets.LoadingDialog
@@ -29,7 +25,7 @@ abstract class SABBaseActivity: AppCompatActivity(),
     protected var mFragmentManager: FragmentManager? = null
 
     protected val autoDisposable by lazy {
-        SABAutoDisposable()
+        AutoDisposable()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

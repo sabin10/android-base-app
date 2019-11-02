@@ -5,13 +5,19 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sabinhantu.baseapp.R
 import com.sabinhantu.baseapp.activities.welcome.WelcomeActivity
-import com.sabinhantu.baseapp.data.lifecycle.SABAutoDisposable
+import com.sabinhantu.baseapp.data.lifecycle.AutoDisposable
 import com.sabinhantu.baseapp.helper.Constants
+import com.sabinhantu.baseapp.helper.addTo
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 class SplashScreenActivity: AppCompatActivity() {
 
     private val autoDisposable by lazy {
-        SABAutoDisposable()
+        AutoDisposable()
     }
 
 
@@ -27,7 +33,7 @@ class SplashScreenActivity: AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        startAppSession()
+        runLogoAnimation()
     }
 
     private fun startAppSession() {
@@ -42,6 +48,27 @@ class SplashScreenActivity: AppCompatActivity() {
 //            }
 //        }
 
+    }
+
+
+    private fun runLogoAnimation() {
+//        val objectAnimator = imv_animation_loading.rotate(Constants.AnimationMoveSet.SPLASH_SCREEN_LOGO_DURATION)
+//        val disposable =
+//            Observable.just(objectAnimator)
+//                .doOnDispose { objectAnimator.cancel() }
+//                .subscribeBy(
+//                    onNext = {
+//                        objectAnimator.start()
+//                    }
+//                )
+
+        Observable.timer(1500,TimeUnit.MILLISECONDS)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe {
+                startAppSession()
+            }
+            .addTo(autoDisposable)
     }
 
     /**

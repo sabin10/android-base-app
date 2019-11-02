@@ -21,8 +21,12 @@
         <item name="android:padding">12dp</item>
         <item name="android:textColor">@color/White</item>
         <item name="android:textSize">@dimen/material_text_subhead</item>
-        <item name="android:background">@drawable/round_btn</item>
+        <item name="android:background">@drawable/round_green_btn</item>
 
+    </style>
+
+    <style name="progressWhite">
+        <item name="android:colorPrimary">@android:color/white</item>
     </style>
 
 </resources>

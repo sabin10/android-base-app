@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
-import com.sabinhantu.baseapp.data.lifecycle.SABAutoDisposable
+import com.sabinhantu.baseapp.data.lifecycle.AutoDisposable
 import com.sabinhantu.baseapp.interfaces.*
 
 abstract class SABBaseFragment: Fragment() {
@@ -19,7 +19,7 @@ abstract class SABBaseFragment: Fragment() {
     protected var mPermissionRequestAction: OnRequestPermission? = null
 
     protected val autoDisposable by lazy {
-        SABAutoDisposable()
+        AutoDisposable()
     }
 
     override fun onAttach(context: Context) {

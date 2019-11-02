@@ -6,7 +6,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-class SABAutoDisposable: LifecycleObserver {
+class AutoDisposable: LifecycleObserver {
     lateinit var compositeDisposable: CompositeDisposable
     fun bindTo(lifecycle: Lifecycle) {
         lifecycle.addObserver(this)
