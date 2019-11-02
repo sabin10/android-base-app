@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".activities.welcome.WelcomeActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="Choose"
+        android:textSize="@dimen/material_text_title"
+        app:layout_constraintBottom_toTopOf="@id/btn_register_donor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_register_donor"
+        style="@style/btn_green_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_padding_double"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="@dimen/default_padding_double"
+        android:text="Company"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="or"
+        android:layout_marginTop="@dimen/default_padding"
+        app:layout_constraintTop_toBottomOf="@id/btn_register_donor"
+        app:layout_constraintStart_toStartOf="@id/btn_register_donor"
+        app:layout_constraintEnd_toEndOf="@id/btn_register_donor"/>
+
+    <Button
+        android:id="@+id/btn_register_person"
+        android:text="Person"
+        style="@style/btn_green_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding"
+        android:layout_marginTop="@dimen/default_padding"
+        app:layout_constraintTop_toBottomOf="@id/tv_or"
+        app:layout_constraintStart_toStartOf="@id/btn_register_donor"
+        app:layout_constraintEnd_toEndOf="@id/btn_register_donor"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
