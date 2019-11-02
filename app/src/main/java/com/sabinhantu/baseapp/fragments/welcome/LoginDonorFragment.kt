@@ -12,7 +12,9 @@ import com.sabinhantu.baseapp.data.RetrofitClientInstance
 import com.sabinhantu.baseapp.data.api.AuthenticationAPI
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
 import com.sabinhantu.baseapp.helper.Constants
+import com.sabinhantu.baseapp.helper.UtilSharedPreferences
 import com.sabinhantu.baseapp.helper.logErrorMessage
+import com.sabinhantu.baseapp.model.Donor
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.fragment_login_donor.*
 import retrofit2.Call
@@ -91,17 +93,29 @@ class LoginDonorFragment : SABBaseFragment() {
             edt_email.text.trim().toString(),
             edt_password.text.trim().toString())
 
-        call?.enqueue(object : Callback<JsonObject> {
-            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-                "response=${response.body()}".logErrorMessage()
-                Toast.makeText(
-                    context,
-                    "Login SUCCESSS",
-                    Toast.LENGTH_SHORT
-                ).show()
+        call?.enqueue(object : Callback<Donor> {
+            override fun onResponse(call: Call<Donor>, response: Response<Donor>) {
+                if(response.isSuccessful){
+
+                    "response=${response.body().toString()}".logErrorMessage()
+                    Toast.makeText(
+                        context,
+                        "Login SUCCESSS",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    context?.let { ctx ->
+                        response.body()?.id?.let {
+                            UtilSharedPreferences.saveUser(ctx,it)
+                        }
+                    }
+
+                }else {
+                    Toast.makeText(context,"code=${response.code()} message=${response.message()}",Toast.LENGTH_SHORT).show()
+                }
             }
 
-            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+            override fun onFailure(call: Call<Donor>, t: Throwable) {
                 Toast.makeText(
                     context,
                     "Something went wrong ${t.message}",
