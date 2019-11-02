@@ -37,7 +37,7 @@ class SplashScreenActivity: AppCompatActivity() {
     }
 
     private fun startAppSession() {
-        goToWelcomeActivity(Constants.FragmentTags.TAG_FRAGMENT_LOGIN)
+        goToWelcomeActivity(Constants.FragmentTags.TAG_FRAGMENT_LOGIN_DONOR)
 
 //        val sessionToken = SharedPreferencesHelper.getSessionToken(this);
 //        when (sessionToken.isEmpty()) {
