@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="textInputEditText">
+    <style name="textInputEditText" parent="AppTheme">
         <item name="android:background">@drawable/background_edit_text</item>
         <item name="android:textColor">@color/Black</item>
         <item name="android:textColorHint">@color/MediumGray</item>
@@ -16,11 +16,15 @@
     </style>
 
     <!--BUTTONS-->
-    <style name="btn_green_style">
+    <style name="btn_green_style" parent="AppTheme">
         <item name="android:padding">@dimen/default_padding_half</item>
         <item name="android:textColor">@color/White</item>
         <item name="android:background">@color/Green</item>
 
+    </style>
+
+    <style name="progressWhite">
+        <item name="android:colorPrimary">@android:color/white</item>
     </style>
 
 </resources>

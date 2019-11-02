@@ -20,7 +20,6 @@ class WelcomeActivity: SABBaseActivity() {
         when (intent.extras?.getString(Constants.FragmentTags.TAG_FRAGMENT)) {
             Constants.FragmentTags.TAG_FRAGMENT_LOGIN -> {
                 onAddFragment(Constants.FragmentTags.TAG_FRAGMENT_LOGIN)
-                showToast("sabiiin")
 
             }
         }
