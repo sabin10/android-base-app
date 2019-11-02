@@ -9,9 +9,10 @@
 
     <ImageView
         android:id="@+id/tv_loading"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
         android:src="@drawable/app_logo"
+        android:layout_marginBottom="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

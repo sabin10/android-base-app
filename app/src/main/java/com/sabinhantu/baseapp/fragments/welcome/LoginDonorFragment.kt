@@ -46,6 +46,6 @@ class LoginDonorFragment : SABBaseFragment() {
     }
 
     private fun login() {
-        Toast.makeText(context,"Login !!!",Toast.LENGTH_LONG).show()
+//        Toast.makeText(context,"Login !!!",Toast.LENGTH_LONG).show()
     }
 }
