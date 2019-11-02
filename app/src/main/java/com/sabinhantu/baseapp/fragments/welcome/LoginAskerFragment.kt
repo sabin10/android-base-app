@@ -13,7 +13,9 @@ import com.sabinhantu.baseapp.data.RetrofitClientInstance
 import com.sabinhantu.baseapp.data.api.AuthenticationAPI
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
 import com.sabinhantu.baseapp.helper.Constants
+import com.sabinhantu.baseapp.helper.UtilSharedPreferences
 import com.sabinhantu.baseapp.helper.logErrorMessage
+import com.sabinhantu.baseapp.model.Volunteer
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.fragment_login_asker.*
 import kotlinx.android.synthetic.main.fragment_login_asker.edt_email
@@ -71,18 +73,30 @@ class LoginAskerFragment : SABBaseFragment() {
             edt_email.text.trim().toString(),
             edt_password.text.trim().toString())
 
-        call?.enqueue(object : Callback<JsonObject> {
-            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-                "response=${response.body()}".logErrorMessage()
+        call?.enqueue(object : Callback<Volunteer> {
+            override fun onResponse(call: Call<Volunteer>, response: Response<Volunteer>) {
+                "response=${response.body().toString()}".logErrorMessage()
 
                 Toast.makeText(
                     context,
                     "Login SUCCESSS",
                     Toast.LENGTH_SHORT
                 ).show()
+
+
+                context?.let { ctx ->
+                    response.body()?.id?.let {
+                        UtilSharedPreferences.saveUser(ctx,it)
+                    }
+                }
+
+                context?.let { ctx ->
+                    UtilSharedPreferences.getUserId(ctx).logErrorMessage()
+                }
+
             }
 
-            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+            override fun onFailure(call: Call<Volunteer>, t: Throwable) {
                 Toast.makeText(
                     context,
                     "Something went wrong ${t.message}",

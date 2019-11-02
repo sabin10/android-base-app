@@ -3,6 +3,8 @@ package com.sabinhantu.baseapp.data.api
 import com.google.gson.JsonObject
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.sabinhantu.baseapp.model.Donor
+import com.sabinhantu.baseapp.model.Volunteer
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.Body
@@ -16,19 +18,19 @@ interface AuthenticationAPI {
     fun loginAsDonor(
         @Query("email") email: String,
         @Query("password")password: String
-    ): Call<JsonObject>
+    ): Call<Donor>
 
     @GET("volunteer/login")
     fun loginAsVolunteer(
         @Query("email") email: String,
         @Query("password")password: String
-    ): Call<JsonObject>
+    ): Call<Volunteer>
 
     @POST("donor/register")
-    fun registerAsDonor(@Body data: RegisterDonorApi): Call<JsonObject>
+    fun registerAsDonor(@Body data: RegisterDonorApi): Call<Donor>
 
     @POST("volunteer/register")
-    fun registerAsVolunteer(@Body data: RegisterVolunteerApi): Call<JsonObject>
+    fun registerAsVolunteer(@Body data: RegisterVolunteerApi): Call<Volunteer>
 
 
 }
