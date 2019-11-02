@@ -1,12 +1,19 @@
-package com.sabinhantu.baseapp.model
+package com.sabinhantu.baseapp.data.api
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.sabinhantu.baseapp.model.Offer
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.POST
 
-data class Offer (
-    @SerializedName("id")
-    @Expose
-    var id: Long = 0,
+interface DonorAPI {
+
+    @POST("donor/offer")
+    fun createOffer(@Body offer: OfferRequest): Call<Offer>
+}
+
+data class OfferRequest (
 
     @SerializedName("companyId")
     @Expose
@@ -30,9 +37,5 @@ data class Offer (
 
     @SerializedName("description")
     @Expose
-    var description: String,
-
-    @SerializedName("expired")
-//    @Expose
-    var expired: Boolean
+    var description: String
 )
