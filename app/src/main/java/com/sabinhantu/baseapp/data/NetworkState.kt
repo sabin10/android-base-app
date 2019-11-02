@@ -1,6 +1,6 @@
 package com.sabinhantu.baseapp.data
 
-enum class SABApiResponseState(val code: Int) {
+enum class NetworkState(val code: Int) {
 
     Continue(100),
     SwitchingProtocols(101),
@@ -70,11 +70,11 @@ enum class SABApiResponseState(val code: Int) {
     Unknown(0),
     NoInternet(1);
 
-    var responseMessage: String? = null
-    var requestURL: String? = null
+    var message: String? = null
+    var api: String? = null
 
     companion object {
-        fun getStatusFrom(code: Int): SABApiResponseState = values().find { it.code == code } ?: Unknown
+        fun from(code: Int): NetworkState = values().find { it.code == code } ?: Unknown
 
         const val MESSAGE = "message"
     }
