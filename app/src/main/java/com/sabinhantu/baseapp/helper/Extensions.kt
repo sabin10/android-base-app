@@ -1,6 +1,7 @@
 package com.sabinhantu.baseapp.helper
 
 import android.animation.ObjectAnimator
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
@@ -20,4 +21,9 @@ fun View.rotate(duration: Long = 1500): ObjectAnimator {
     rotate.interpolator = LinearInterpolator()
 
     return rotate
+}
+
+
+fun String.logErrorMessage(TAG: String = "tag") {
+    Log.e(TAG, this)
 }
