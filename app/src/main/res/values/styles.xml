@@ -11,22 +11,43 @@
     <style name="textInputEditText">
         <item name="android:background">@drawable/auth_input_style</item>
         <item name="android:padding">14dp</item>
-        <item name="android:textColor">@color/Black</item>
+        <item name="android:fontFamily">@font/rubik_regular</item>
+        <item name="android:textColor">@color/MediumGray</item>
         <item name="android:textColorHint">@color/LightGray</item>
         <item name="android:textSize">@dimen/material_text_title</item>
     </style>
 
     <!--BUTTONS-->
     <style name="btn_green_style">
-        <item name="android:padding">12dp</item>
+        <item name="android:padding">8dp</item>
         <item name="android:textColor">@color/White</item>
-        <item name="android:textSize">@dimen/material_text_subhead</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:background">@drawable/round_green_btn</item>
+        <item name="android:fontFamily">@font/rubik_medium</item>
 
     </style>
 
     <style name="progressWhite">
         <item name="android:colorPrimary">@android:color/white</item>
+    </style>
+
+    <style name="title_fragment_welcome">
+        <item name="android:textSize">@dimen/material_text_headline</item>
+        <item name="android:fontFamily">@font/rubik_bold</item>
+        <item name="android:textColor">@color/DarkGray</item>
+    </style>
+
+    <style name="tv_as_btn">
+        <item name="android:textSize">@dimen/material_text_title</item>
+        <item name="android:fontFamily">@font/rubik_medium</item>
+        <item name="android:textColor">@color/DarkGray</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="tv_as_btn_grey" parent="tv_as_btn">
+        <item name="android:textColor">@color/MediumGray</item>
+        <item name="android:textSize">@dimen/material_text_subhead</item>
     </style>
 
 </resources>

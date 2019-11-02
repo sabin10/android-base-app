@@ -14,22 +14,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_padding_small"
-        android:text="Donor"
-        android:textSize="@dimen/material_text_title"
-        android:layout_marginTop="@dimen/default_margin_double"
+        android:text="Login as Donor"
+        android:layout_marginTop="92dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/title_fragment_welcome" />
 
     <LinearLayout
         android:id="@+id/lly_credentials"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="32dp"
         android:layout_marginStart="@dimen/default_padding_double"
         android:layout_marginEnd="@dimen/default_padding_double"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -72,14 +72,12 @@
         android:id="@+id/tv_login_as_asker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/default_padding_small"
+        android:layout_marginTop="32dp"
         android:text="Login as Asker"
-        android:textSize="@dimen/material_text_title"
-        android:clickable="true"
-        android:focusable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_or"/>
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
+        style="@style/tv_as_btn" />
 
     <TextView
         android:id="@+id/tv_or"
@@ -89,17 +87,19 @@
         android:text="or"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_register"/>
+        app:layout_constraintBottom_toTopOf="@id/tv_register"
+        style="@style/tv_as_btn_grey"
+        android:textSize="16dp"/>
 
     <TextView
         android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/default_padding_double"
-        android:text="Register"
-        android:textSize="@dimen/material_text_title"
+        android:layout_marginBottom="48dp"
+        android:text="Create an account"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/tv_as_btn_grey"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
