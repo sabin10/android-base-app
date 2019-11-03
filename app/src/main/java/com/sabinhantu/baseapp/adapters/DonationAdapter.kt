@@ -16,7 +16,14 @@ class DonationAdapter (
         p0.tvDescription?.text = donationsList[p1].description
         p0.tvDate?.text = donationsList[p1].date
         p0.tvAddress?.text = donationsList[p1].address
-        p0.tvQuantity?.text = "${donationsList[p1].alreadyTaken}/${donationsList[p1].quantity}"
+        donationsList[p1].quantity?.let { quantity ->
+            donationsList[p1].alreadyTaken?.let { alreadyTaken ->
+                p0.tvQuantity?.text = "Available ${quantity.minus(alreadyTaken)}/${quantity} packages of food"
+
+            }
+
+        }
+//        p0.tvQuantity?.text = "Still available ${donationsList[p1].quantity?.minus(donationsList[p1].alreadyTaken)}/${donationsList[p1].quantity} packages of food"
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
