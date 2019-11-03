@@ -61,7 +61,7 @@ class DonationAdapter (
                     }
                 }
                 onClickItem?.invoke(
-                    donationsList[position].companyId,
+                    donationsList[position].id,
                     donationsList[position].description,
                     donationsList[position].address,
                     status
