@@ -76,7 +76,6 @@ class ProfileDonorFragment : SABBaseFragment() {
                 }
 
             })
-
         }
 
     }

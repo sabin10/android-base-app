@@ -90,11 +90,6 @@ class LoginDonorFragment : SABBaseFragment() {
                 if(response.isSuccessful){
 
                     "response=${response.body().toString()}".logErrorMessage()
-//                    Toast.makeText(
-//                        context,
-//                        "Login SUCCESSS",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
 
                     context?.let { ctx ->
                         response.body()?.id?.let {
