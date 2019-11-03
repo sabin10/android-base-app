@@ -25,6 +25,9 @@ interface AskerAPI {
     fun getVolunteerProfile(
         @Query("volunteerId") volunteerId: String
     ): Call<Volunteer>
+
+    @POST("volunteer/raise")
+    fun createAsk(@Body data: AskRequest): Call<AskResponse>
 }
 
 data class AskFoodRequest(
@@ -55,4 +58,23 @@ data class AskFoodRequest(
     @SerializedName("alreadyTaken")
     @Expose
     var alreadyTaken: Int = 0
+)
+
+data class AskRequest(
+    @SerializedName("reservedQuantity")
+    @Expose
+    var reservedQuantity: Int,
+
+    @SerializedName("volunteerId")
+    @Expose
+    var volunteerId: Long,
+
+    @SerializedName("offerId")
+    @Expose
+    var companyId: Long
+)
+
+data class AskResponse(
+    @SerializedName("status")
+    @Expose val status: String
 )

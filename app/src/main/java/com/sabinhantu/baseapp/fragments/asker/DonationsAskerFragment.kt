@@ -43,6 +43,11 @@ class DonationsAskerFragment : SABBaseFragment() {
         rv_donations.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
+//        fetchDonations()
+    }
+
+    override fun onResume() {
+        super.onResume()
         fetchDonations()
     }
 
