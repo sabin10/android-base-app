@@ -57,17 +57,17 @@ class DonationsAskerFragment : SABBaseFragment() {
                 if(response.isSuccessful){
 
                     "response=${response.body().toString()}".logErrorMessage()
-                    Toast.makeText(
-                        context,
-                        "Get food request SUCCESSS",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        "Get food request SUCCESSS",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
 
                     response.body()?.let {
                         adapter = DonationAdapter(it)
                         adapter.onClickItem = { companyId, description, location, status ->
 
-                            Toast.makeText(context, "am apasatttt", Toast.LENGTH_LONG).show()
+//                            Toast.makeText(context, "am apasatttt", Toast.LENGTH_LONG).show()
 
                             val fragmentBundle = Bundle()
 //                            "companyId=$companyId".logErrorMessage()

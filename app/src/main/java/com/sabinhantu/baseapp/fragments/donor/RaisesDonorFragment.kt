@@ -56,11 +56,11 @@ class RaisesDonorFragment : SABBaseFragment() {
                 if(response.isSuccessful){
 
                     "response=${response.body().toString()}".logErrorMessage()
-                    Toast.makeText(
-                        context,
-                        "Get food request SUCCESSS",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        "Get food request SUCCESSS",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
 
                     response.body()?.let {
                         adapter = RequestAdapter(it)
