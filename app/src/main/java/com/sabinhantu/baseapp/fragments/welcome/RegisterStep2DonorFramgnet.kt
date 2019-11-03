@@ -1,5 +1,6 @@
 package com.sabinhantu.baseapp.fragments.welcome
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.gson.JsonObject
 import com.sabinhantu.baseapp.R
+import com.sabinhantu.baseapp.activities.donor.HomeDonorActivity
 import com.sabinhantu.baseapp.data.RetrofitClientInstance
 import com.sabinhantu.baseapp.data.api.AuthenticationAPI
 import com.sabinhantu.baseapp.data.api.RegisterDonorApi
@@ -69,17 +71,26 @@ class RegisterStep2DonorFramgnet : SABBaseFragment() {
                 call?.enqueue(object : Callback<Donor> {
                     override fun onResponse(call: Call<Donor>, response: Response<Donor>) {
                         "response=${response.body().toString()}".logErrorMessage()
-                        Toast.makeText(
-                            context,
-                            "Register SUCCESSS",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        if(response.isSuccessful){
+                            Toast.makeText(
+                                context,
+                                "Register SUCCESSS",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                        context?.let { ctx ->
-                            response.body()?.id?.let {
-                                UtilSharedPreferences.saveUser(ctx,it)
+                            context?.let { ctx ->
+                                response.body()?.id?.let {
+                                    UtilSharedPreferences.saveUser(ctx,it)
+                                }
                             }
+
+                            val intent = Intent(context, HomeDonorActivity::class.java)
+                            startActivity(intent)
+                            activity?.finish()
+                        }else {
+                            Toast.makeText(context,"code=${response.code()} message=${response.message()}",Toast.LENGTH_SHORT).show()
                         }
+
                     }
 
                     override fun onFailure(call: Call<Donor>, t: Throwable) {

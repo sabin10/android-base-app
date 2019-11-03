@@ -1,5 +1,6 @@
 package com.sabinhantu.baseapp.fragments.asker
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sabinhantu.baseapp.R
+import com.sabinhantu.baseapp.activities.details.DonationDetailsActivity
 import com.sabinhantu.baseapp.adapters.DonationAdapter
 import com.sabinhantu.baseapp.data.RetrofitClientInstance
 import com.sabinhantu.baseapp.data.api.AskerAPI
@@ -62,6 +64,19 @@ class DonationsAskerFragment : SABBaseFragment() {
 
                     response.body()?.let {
                         adapter = DonationAdapter(it)
+                        adapter.onClickItem = { companyId, description, location, status ->
+
+                            val fragmentBundle = Bundle()
+//                            "companyId=$companyId".logErrorMessage()
+                            companyId?.let { it1 -> fragmentBundle.putLong("companyId", it1) }
+                            description?.let { it1 -> fragmentBundle.putString("description", it1) }
+                            status?.let { it1 -> fragmentBundle.putString("status", it1) }
+
+
+                            val intent = Intent(activity, DonationDetailsActivity::class.java)
+                            intent.putExtra("bundle",fragmentBundle)
+                            startActivity(intent)
+                        }
                         rv_donations.adapter = adapter
                     }
 
