@@ -18,7 +18,7 @@ class RequestAdapter(
         p0.tvDescription?.text = requestsList[p1].description
         p0.tvDate?.text = requestsList[p1].date
         p0.tvAddress?.text = requestsList[p1].address
-        p0.tvQuantity?.text = "${requestsList[p1].alreadyTaken}/${requestsList[p1].quantity}"
+        p0.tvQuantity?.text = "Still need ${requestsList[p1].quantity - requestsList[p1].alreadyTaken}/${requestsList[p1].quantity} packages of food"
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {

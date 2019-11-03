@@ -3,15 +3,24 @@ package com.sabinhantu.baseapp.data.api
 import com.google.gson.JsonObject
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.sabinhantu.baseapp.model.Donor
+import com.sabinhantu.baseapp.model.Volunteer
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface AskerAPI {
 
     @POST("volunteer/create-request")
     fun createAskFood(@Body askFood: AskFoodRequest): Call<JsonObject>
+
+    @GET("/volunteer/profile")
+    fun getVolunteerProfile(
+        @Query("volunteerId") volunteerId: String
+    ): Call<Volunteer>
 }
 
 //{

@@ -52,7 +52,6 @@ class LoginAskerFragment : SABBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
-
         edt_email.setText("andrei@gmail.com")
         edt_password.setText("parola")
     }
@@ -82,7 +81,7 @@ class LoginAskerFragment : SABBaseFragment() {
         call?.enqueue(object : Callback<Volunteer> {
             override fun onResponse(call: Call<Volunteer>, response: Response<Volunteer>) {
                 "response=${response.body().toString()}".logErrorMessage()
-
+//
 //                Toast.makeText(
 //                    context,
 //                    "Login SUCCESSS",
@@ -96,11 +95,11 @@ class LoginAskerFragment : SABBaseFragment() {
                     }
                 }
 
-                intentToHomeAskerActivity()
-
                 context?.let { ctx ->
                     UtilSharedPreferences.getUserId(ctx).logErrorMessage()
                 }
+
+                intentToMainAsker()
 
             }
 
@@ -115,7 +114,7 @@ class LoginAskerFragment : SABBaseFragment() {
         })
     }
 
-    fun intentToHomeAskerActivity() {
+    fun intentToMainAsker() {
         val intent = Intent(context, HomeAskerActivity::class.java)
         startActivity(intent)
         activity?.finish()
