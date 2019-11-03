@@ -17,11 +17,11 @@ class HomeAskerActivity : SABBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_donor)
+        setContentView(R.layout.activity_home_asker)
 
         // start with donations fragment
         onAddFragment(Constants.FragmentTags.TAG_FRAGMENT_DONATIONS_ASKER)
-        bottomNav = findViewById(R.id.bottom_navigation_donor)
+        bottomNav = findViewById(R.id.bottom_navigation_asker)
         setBottomNavigation()
     }
 
