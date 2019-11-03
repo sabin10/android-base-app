@@ -52,6 +52,9 @@ class LoginAskerFragment : SABBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+
+        edt_email.setText("andrei@gmail.com")
+        edt_password.setText("parola")
     }
 
     private fun initViews() {
@@ -80,11 +83,11 @@ class LoginAskerFragment : SABBaseFragment() {
             override fun onResponse(call: Call<Volunteer>, response: Response<Volunteer>) {
                 "response=${response.body().toString()}".logErrorMessage()
 
-                Toast.makeText(
-                    context,
-                    "Login SUCCESSS",
-                    Toast.LENGTH_SHORT
-                ).show()
+//                Toast.makeText(
+//                    context,
+//                    "Login SUCCESSS",
+//                    Toast.LENGTH_SHORT
+//                ).show()
 
 
                 context?.let { ctx ->
@@ -93,9 +96,7 @@ class LoginAskerFragment : SABBaseFragment() {
                     }
                 }
 
-                val intent = Intent(context, HomeAskerActivity::class.java)
-                startActivity(intent)
-                activity?.finish()
+                intentToHomeAskerActivity()
 
             }
 
@@ -108,6 +109,12 @@ class LoginAskerFragment : SABBaseFragment() {
             }
 
         })
+    }
+
+    fun intentToHomeAskerActivity() {
+        val intent = Intent(context, HomeAskerActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 
     /**

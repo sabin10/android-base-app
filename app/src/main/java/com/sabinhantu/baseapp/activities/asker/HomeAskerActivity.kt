@@ -6,7 +6,9 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.sabinhantu.baseapp.R
 import com.sabinhantu.baseapp.activities.SABBaseActivity
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
+import com.sabinhantu.baseapp.fragments.asker.AskAskerFragment
 import com.sabinhantu.baseapp.fragments.asker.DonationsAskerFragment
+import com.sabinhantu.baseapp.fragments.asker.ProfileAskerFragment
 import com.sabinhantu.baseapp.helper.Constants
 
 class HomeAskerActivity : SABBaseActivity() {
@@ -30,6 +32,8 @@ class HomeAskerActivity : SABBaseActivity() {
     override fun getFragmentByTag(TAG: String): SABBaseFragment? {
         return when (TAG) {
             Constants.FragmentTags.TAG_FRAGMENT_DONATIONS_ASKER -> DonationsAskerFragment.newInstance()
+            Constants.FragmentTags.TAG_FRAGMENT_ASK_ASKER -> AskAskerFragment.newInstance()
+            Constants.FragmentTags.TAG_FRAGMENT_PROFILE_ASKER -> ProfileAskerFragment.newInstance()
             else -> null
         }
     }
