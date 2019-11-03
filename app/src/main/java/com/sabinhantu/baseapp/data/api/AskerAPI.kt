@@ -75,6 +75,9 @@ data class AskRequest(
 )
 
 data class AskResponse(
-    @SerializedName("status")
-    @Expose val status: String
+    @SerializedName("quantity")
+    @Expose val quantity: Int,
+
+    @SerializedName("reserved")
+    @Expose val reservedQuantity: Int
 )

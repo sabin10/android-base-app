@@ -19,12 +19,13 @@ interface DonorAPI {
     @GET("donor/show-requests")
     fun getRequests(): Call<ArrayList<RequestFood>>
 
-    @GET("/donor/profile")
+    @GET("donor/profile")
     fun getDonorProfile(
         @Query("donorId") donorId: String
     ): Call<Donor>
 
-
+    @POST("donor/provide")
+    fun provide(@Body data: ProvideRequest): Call<ProvideResponse>
 }
 
 data class OfferRequest (
@@ -52,4 +53,23 @@ data class OfferRequest (
     @SerializedName("description")
     @Expose
     var description: String
+)
+
+
+data class ProvideResponse(
+    @SerializedName("quantity")
+    @Expose val quantity: Int,
+
+    @SerializedName("reserved")
+    @Expose val reservedQuantity: Int
+)
+
+data class ProvideRequest(
+    @SerializedName("reserved")
+    @Expose
+    var reserved: Int,
+
+    @SerializedName("requestId")
+    @Expose
+    var requestId: Long
 )

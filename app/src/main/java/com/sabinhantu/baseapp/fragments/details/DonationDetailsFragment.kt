@@ -105,8 +105,9 @@ class DonationDetailsFragment : SABBaseFragment() {
                         "Request for food SUCCESSS",
                         Toast.LENGTH_SHORT
                     ).show()
-
-                    tv_status.setText("Available ${response.body()?.status} packages of food")
+                    val data = response.body()
+                    "data.quantity=${data?.quantity} data.reserved=${data?.reservedQuantity}".logErrorMessage()
+                    tv_status.setText("Available ${data?.quantity?.minus(data?.reservedQuantity)}/${data?.quantity} packages of food")
 
                 }else {
                     Toast.makeText(context,"code=${response.code()} message=${response.message()}",Toast.LENGTH_SHORT).show()
