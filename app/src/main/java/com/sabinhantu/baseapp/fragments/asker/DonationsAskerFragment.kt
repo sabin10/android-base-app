@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sabinhantu.baseapp.R
@@ -39,18 +38,7 @@ class DonationsAskerFragment : SABBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val array = ArrayList<Donation>()
-//        array.add(Donation.getPlaceholder())
-//        array.add(Donation.getPlaceholder())
-//        array.add(Donation.getPlaceholder())
-//        array.add(Donation.getPlaceholder())
-//        array.add(Donation.getPlaceholder())
-//        array.add(Donation.getPlaceholder())
-//
-//        adapter = DonationAdapter(array)
-
         rv_donations.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
- //       rv_donations.adapter = adapter
 
         fetchDonations()
     }

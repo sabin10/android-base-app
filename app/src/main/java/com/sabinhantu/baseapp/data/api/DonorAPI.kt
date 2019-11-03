@@ -2,6 +2,7 @@ package com.sabinhantu.baseapp.data.api
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.sabinhantu.baseapp.model.Donor
 import com.sabinhantu.baseapp.model.Offer
 import com.sabinhantu.baseapp.model.RequestFood
 import retrofit2.Call
@@ -17,6 +18,13 @@ interface DonorAPI {
 
     @GET("donor/show-requests")
     fun getRequests(): Call<ArrayList<RequestFood>>
+
+    @GET("/donor/profile")
+    fun getDonorProfile(
+        @Query("donorId") donorId: String
+    ): Call<Donor>
+
+
 }
 
 data class OfferRequest (
