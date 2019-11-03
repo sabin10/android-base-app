@@ -71,7 +71,7 @@ class RegisterStep2DonorFramgnet : SABBaseFragment() {
                         "response=${response.body().toString()}".logErrorMessage()
                         Toast.makeText(
                             context,
-                            "Register SUCCESSS",
+                            "Wait to be accepted by the admin",
                             Toast.LENGTH_SHORT
                         ).show()
 

@@ -1,5 +1,6 @@
 package com.sabinhantu.baseapp.fragments.welcome
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.gson.JsonObject
 import com.sabinhantu.baseapp.R
+import com.sabinhantu.baseapp.activities.asker.HomeAskerActivity
 import com.sabinhantu.baseapp.data.RetrofitClientInstance
 import com.sabinhantu.baseapp.data.api.AuthenticationAPI
 import com.sabinhantu.baseapp.data.api.RegisterDonorApi
@@ -65,19 +67,14 @@ class RegisterStep2AskerFramgnet : SABBaseFragment() {
                 call?.enqueue(object : Callback<Volunteer> {
                     override fun onResponse(call: Call<Volunteer>, response: Response<Volunteer>) {
                         "response=${response.body().toString()}".logErrorMessage()
-                        Toast.makeText(
-                            context,
-                            "Register SUCCESSS",
-                            Toast.LENGTH_SHORT
-                        ).show()
 
+                        intentToHomeAskerActivity()
 
                         context?.let { ctx ->
                             response.body()?.id?.let {
                                 UtilSharedPreferences.saveUser(ctx,it)
                             }
                         }
-
                     }
 
                     override fun onFailure(call: Call<Volunteer>, t: Throwable) {
@@ -87,17 +84,18 @@ class RegisterStep2AskerFramgnet : SABBaseFragment() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-
                 })
 
             } else {
                 Toast.makeText(context, " Passwords don't match ", Toast.LENGTH_SHORT).show()
             }
-
-
-
         }
+    }
 
+    fun intentToHomeAskerActivity() {
+        val intent = Intent(context, HomeAskerActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 
 }
