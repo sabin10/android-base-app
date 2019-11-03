@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_email_label"
         android:layout_marginTop="8dp"
-        android:text="Email@ceva.com"
+        android:text="----"
         android:textSize="20sp"
         android:layout_marginStart="32dp"
         style="@style/tv_as_btn"/>
@@ -73,7 +73,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_phone_label"
         android:layout_marginTop="8dp"
-        android:text="Email@ceva.com"
+        android:text="----"
         android:textSize="20sp"
         android:layout_marginStart="32dp"
         style="@style/tv_as_btn"/>
@@ -97,7 +97,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_address_label"
         android:layout_marginTop="8dp"
-        android:text="str. unirii"
+        android:text="----"
         android:textSize="20sp"
         android:layout_marginStart="32dp"
         style="@style/tv_as_btn"/>
