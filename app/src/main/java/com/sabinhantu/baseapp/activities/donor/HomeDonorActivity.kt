@@ -44,7 +44,7 @@ class HomeDonorActivity : SABBaseActivity() {
 
     // Bottom Nav
     private fun setBottomNavigation() {
-        val raisesItem = AHBottomNavigationItem("Raises", R.drawable.ic_view_headline_24, R.color.DarkGray)
+        val raisesItem = AHBottomNavigationItem("Requests", R.drawable.ic_view_headline_24, R.color.DarkGray)
         val donateItem = AHBottomNavigationItem("Donate", R.drawable.ic_add_circle_24, R.color.DarkGray)
         val profileItem = AHBottomNavigationItem("Profile", R.drawable.ic_person_24, R.color.DarkGray)
         bottomNav.addItem(raisesItem)
