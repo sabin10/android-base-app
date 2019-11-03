@@ -1,6 +1,5 @@
 package com.sabinhantu.baseapp.fragments.donor
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,18 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sabinhantu.baseapp.R
-import com.sabinhantu.baseapp.activities.adapters.RequestAdapter
-import com.sabinhantu.baseapp.activities.donor.HomeDonorActivity
+import com.sabinhantu.baseapp.adapters.RequestAdapter
 import com.sabinhantu.baseapp.data.RetrofitClientInstance
-import com.sabinhantu.baseapp.data.api.AuthenticationAPI
 import com.sabinhantu.baseapp.data.api.DonorAPI
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
-import com.sabinhantu.baseapp.fragments.welcome.LoginDonorFragment
-import com.sabinhantu.baseapp.helper.UtilSharedPreferences
 import com.sabinhantu.baseapp.helper.logErrorMessage
-import com.sabinhantu.baseapp.model.Donor
 import com.sabinhantu.baseapp.model.RequestFood
-import kotlinx.android.synthetic.main.fragment_login_donor.*
 import kotlinx.android.synthetic.main.fragment_raises_donor.*
 import retrofit2.Call
 import retrofit2.Callback
