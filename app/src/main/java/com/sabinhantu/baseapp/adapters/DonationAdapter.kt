@@ -1,29 +1,27 @@
-package com.sabinhantu.baseapp.activities.adapters
+package com.sabinhantu.baseapp.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sabinhantu.baseapp.R
-import com.sabinhantu.baseapp.model.RequestFood
+import com.sabinhantu.baseapp.model.Donation
 
-class RequestAdapter(
-    val requestsList: ArrayList<RequestFood>) :
-    RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
+class DonationAdapter (
+    val donationsList: ArrayList<Donation>) :
+    RecyclerView.Adapter<DonationAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0.tvDescription?.text = requestsList[p1].description
-        p0.tvDate?.text = requestsList[p1].date
-        p0.tvAddress?.text = requestsList[p1].address
-        p0.tvQuantity?.text = "Still need ${requestsList[p1].quantity - requestsList[p1].alreadyTaken}/${requestsList[p1].quantity} packages of food"
+        p0.tvDescription?.text = donationsList[p1].description
+        p0.tvDate?.text = donationsList[p1].date
+        p0.tvAddress?.text = donationsList[p1].address
+        p0.tvQuantity?.text = "${donationsList[p1].alreadyTaken}/${donationsList[p1].quantity}"
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        val v = LayoutInflater.from(p0?.context).inflate(
-            R.layout.item_raises_donor,
+        val v = LayoutInflater.from(p0.context).inflate(
+            R.layout.item_donations_asker,
             p0,
             false
         )
@@ -32,7 +30,7 @@ class RequestAdapter(
     }
 
     override fun getItemCount(): Int {
-        return requestsList.size
+        return donationsList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -78,4 +78,5 @@
         android:layout_marginStart="32dp"
         style="@style/tv_as_btn"/>
 
+>>>>>>> master
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,14 +36,6 @@ class DonateDonorFragment : SABBaseFragment() {
         initViews()
     }
 
-//    {
-//        "companyId": 1,
-//        "date": "01/12/2019",
-//        "quantity": 10,
-//        "reserved": 0,
-//        "inHouse": true,
-//        "description": "blabla"
-//    }
     private fun initViews() {
         btn_serve_inhouse.setOnClickListener {
             createOffer(inHouse = true)
@@ -64,7 +56,7 @@ class DonateDonorFragment : SABBaseFragment() {
                 quantity = et_number_packages.text.toString().toInt(),
                 reserved = 0,
                 inHouse = inHouse,
-                description = et_description.toString()
+                description = et_description.text.toString()
             )
         )
 
@@ -78,14 +70,14 @@ class DonateDonorFragment : SABBaseFragment() {
             }
 
             override fun onResponse(call: Call<Offer>, response: Response<Offer>) {
-//                if (response.isSuccessful) {
-//                    Toast.makeText(
-//                        context,
-//                        "GOOD JOB",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-                showAlertDialogOnSucces()
+                if (response.isSuccessful) {
+                    Toast.makeText(
+                        context,
+                        "Ask for food SUCCESS",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+//                showAlertDialogOnSucces()
             }
         })
     }

@@ -8,17 +8,11 @@ import android.widget.Toast
 import com.sabinhantu.baseapp.R
 import com.sabinhantu.baseapp.data.RetrofitClientInstance
 import com.sabinhantu.baseapp.data.api.AskerAPI
-import com.sabinhantu.baseapp.data.api.DonorAPI
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
-import com.sabinhantu.baseapp.fragments.donor.ProfileDonorFragment
 import com.sabinhantu.baseapp.helper.UtilSharedPreferences
-import com.sabinhantu.baseapp.model.Donor
 import com.sabinhantu.baseapp.model.Volunteer
 import kotlinx.android.synthetic.main.fragment_profile_asker.*
-import kotlinx.android.synthetic.main.fragment_profile_donor.*
-import kotlinx.android.synthetic.main.fragment_profile_donor.tv_email
 import kotlinx.android.synthetic.main.fragment_profile_donor.tv_name
-import kotlinx.android.synthetic.main.fragment_profile_donor.tv_phone
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

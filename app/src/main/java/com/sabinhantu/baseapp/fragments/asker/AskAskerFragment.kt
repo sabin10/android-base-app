@@ -64,27 +64,28 @@ class AskAskerFragment : SABBaseFragment() {
                 date = et_date.text.toString()
             )
         )
-        showAlertDialogOnSucces()
+//        showAlertDialogOnSucces()
 
         call?.enqueue(object : Callback<JsonObject> {
             override fun onFailure(call: Call<JsonObject>, t: Throwable) {
-//                Toast.makeText(
-//                    context,
-//                    "Something went wrong ${t.message}",
-//                    Toast.LENGTH_SHORT
-//                ).show()
+                Toast.makeText(
+                    context,
+                    "Something went wrong ${t.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-//                if (response.isSuccessful) {
-//                    showAlertDialogOnSucces()
-//                } else {
-//                    Toast.makeText(
-//                        context,
-//                        "TEAPA",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
+                if (response.isSuccessful) {
+                  //  showAlertDialogOnSucces()
+                    Toast.makeText(
+                        context,
+                        "Ask for food SUCCESS",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+
+                }
             }
 
         })

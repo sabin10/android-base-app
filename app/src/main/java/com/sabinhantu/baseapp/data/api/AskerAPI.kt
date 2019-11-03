@@ -3,6 +3,7 @@ package com.sabinhantu.baseapp.data.api
 import com.google.gson.JsonObject
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.sabinhantu.baseapp.model.Donation
 import com.sabinhantu.baseapp.model.Donor
 import com.sabinhantu.baseapp.model.Volunteer
 import org.json.JSONObject
@@ -17,20 +18,14 @@ interface AskerAPI {
     @POST("volunteer/create-request")
     fun createAskFood(@Body askFood: AskFoodRequest): Call<JsonObject>
 
+    @GET("volunteer/show-offers")
+    fun getDonations(): Call<ArrayList<Donation>>
+
     @GET("/volunteer/profile")
     fun getVolunteerProfile(
         @Query("volunteerId") volunteerId: String
     ): Call<Volunteer>
 }
-
-//{
-//    "quantity":"33",
-//    "volunteerId":4,
-//    "address":"Pipera",
-//    "description":"Corporatisti cu cardul blocat",
-//    "expired":false,
-//    "alreadyTaken":5
-//}
 
 data class AskFoodRequest(
     @SerializedName("quantity")
