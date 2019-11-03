@@ -102,9 +102,7 @@ class LoginDonorFragment : SABBaseFragment() {
                         }
                     }
 
-                    val intent = Intent(context, HomeDonorActivity::class.java)
-                    startActivity(intent)
-                    activity?.finish()
+                    intentToHomeDonoActivity()
 
                 }else {
                     Toast.makeText(context,"code=${response.code()} message=${response.message()}",Toast.LENGTH_SHORT).show()
@@ -120,6 +118,12 @@ class LoginDonorFragment : SABBaseFragment() {
             }
 
         })
+    }
+
+    fun intentToHomeDonoActivity() {
+        val intent = Intent(context, HomeDonorActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 
 
