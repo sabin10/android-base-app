@@ -12,8 +12,10 @@ import com.sabinhantu.baseapp.data.api.AuthenticationAPI
 import com.sabinhantu.baseapp.data.api.RegisterDonorApi
 import com.sabinhantu.baseapp.data.api.RegisterVolunteerApi
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
+import com.sabinhantu.baseapp.helper.UtilSharedPreferences
 import com.sabinhantu.baseapp.helper.logErrorMessage
 import com.sabinhantu.baseapp.model.Donor
+import com.sabinhantu.baseapp.model.Volunteer
 import kotlinx.android.synthetic.main.fragment_register_step_2_asker.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -60,17 +62,25 @@ class RegisterStep2AskerFramgnet : SABBaseFragment() {
                     RetrofitClientInstance.retrofitInstance?.create<AuthenticationAPI>(AuthenticationAPI::class.java)
                 val call = service?.registerAsVolunteer(data)
 
-                call?.enqueue(object : Callback<JsonObject> {
-                    override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-                        "response=${response.body()}".logErrorMessage()
+                call?.enqueue(object : Callback<Volunteer> {
+                    override fun onResponse(call: Call<Volunteer>, response: Response<Volunteer>) {
+                        "response=${response.body().toString()}".logErrorMessage()
                         Toast.makeText(
                             context,
                             "Register SUCCESSS",
                             Toast.LENGTH_SHORT
                         ).show()
+
+
+                        context?.let { ctx ->
+                            response.body()?.id?.let {
+                                UtilSharedPreferences.saveUser(ctx,it)
+                            }
+                        }
+
                     }
 
-                    override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                    override fun onFailure(call: Call<Volunteer>, t: Throwable) {
                         Toast.makeText(
                             context,
                             "Something went wrong ${t.message}",

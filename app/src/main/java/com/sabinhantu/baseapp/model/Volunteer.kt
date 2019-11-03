@@ -3,14 +3,11 @@ package com.sabinhantu.baseapp.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Donor (
+data class Volunteer (
+
     @SerializedName("id")
     @Expose
     var id: String? = null,
-
-    @SerializedName("CUI")
-    @Expose
-    val cui: String? = null,
 
     @SerializedName("name")
     @Expose
@@ -39,10 +36,6 @@ class Donor (
     @SerializedName("type")
     @Expose
     var type: String? = null,
-
-    @SerializedName("address")
-    @Expose
-    var address: String? = null,
 
     @SerializedName("picture")
     @Expose
