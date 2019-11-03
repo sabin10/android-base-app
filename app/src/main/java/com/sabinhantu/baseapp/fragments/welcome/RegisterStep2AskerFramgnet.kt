@@ -75,6 +75,7 @@ class RegisterStep2AskerFramgnet : SABBaseFragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
 
+                        intentToHomeAskerActivity()
 
                             context?.let { ctx ->
                                 response.body()?.id?.let {
@@ -88,7 +89,6 @@ class RegisterStep2AskerFramgnet : SABBaseFragment() {
                         }else {
                             Toast.makeText(context,"code=${response.code()} message=${response.message()}",Toast.LENGTH_SHORT).show()
                         }
-
                     }
 
                     override fun onFailure(call: Call<Volunteer>, t: Throwable) {
@@ -98,17 +98,18 @@ class RegisterStep2AskerFramgnet : SABBaseFragment() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-
                 })
 
             } else {
                 Toast.makeText(context, " Passwords don't match ", Toast.LENGTH_SHORT).show()
             }
-
-
-
         }
+    }
 
+    fun intentToHomeAskerActivity() {
+        val intent = Intent(context, HomeAskerActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 
 }

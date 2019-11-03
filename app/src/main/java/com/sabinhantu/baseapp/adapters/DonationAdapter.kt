@@ -16,7 +16,6 @@ class DonationAdapter (
     var onClickItem: ((Long?,String?, String?, String?) -> Unit)? = null
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-
         p0.bind(p1)
     }
 
@@ -45,15 +44,27 @@ class DonationAdapter (
             tvDescription?.text = donationsList[position].description
             tvDate?.text = donationsList[position].date
             tvAddress?.text = donationsList[position].address
-            tvQuantity?.text = "${donationsList[position].alreadyTaken}/${donationsList[position].quantity}"
+//            tvQuantity?.text = "${donationsList[position].alreadyTaken}/${donationsList[position].quantity}"
 
+            donationsList[position].quantity?.let { quantity ->
+                donationsList[position].alreadyTaken?.let { alreadyTaken ->
+                    tvQuantity?.text = "Available ${quantity.minus(alreadyTaken)}/${quantity} packages of food"
+
+                }
+
+            }
 
             itemView.findViewById<ConstraintLayout>(R.id.cly_container_donation).setOnClickListener {
+                val status = donationsList[position].quantity?.let { quantity ->
+                    donationsList[position].alreadyTaken?.let { alreadyTaken ->
+                        "Available ${quantity.minus(alreadyTaken)}/${quantity} packages of food"
+                    }
+                }
                 onClickItem?.invoke(
                     donationsList[position].companyId,
                     donationsList[position].description,
                     donationsList[position].address,
-                    "${donationsList[position].alreadyTaken}/${donationsList[position].quantity}"
+                    status
                 )
             }
         }

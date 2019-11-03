@@ -33,6 +33,10 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/default_padding_small"
                 android:text="dasdasd asdshjsahd askljsad"
+                android:fontFamily="@font/rubik_medium"
+                android:textColor="@color/DarkGray"
+                android:textSize="16sp"
+                android:layout_marginStart="8dp"
                 app:layout_constraintStart_toEndOf="@id/imv_icon"
                 app:layout_constraintTop_toTopOf="@id/imv_icon"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -42,10 +46,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/default_padding_small"
+                android:layout_marginStart="8dp"
                 android:text="dasdasd asdshjsahd askljsad"
                 app:layout_constraintStart_toEndOf="@id/imv_icon"
                 app:layout_constraintTop_toBottomOf="@id/tv_description"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/rubik_regular"
+                android:textColor="@color/MediumGray"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_date"
@@ -53,21 +61,28 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/default_padding_small"
                 android:text="date date"
+                android:layout_marginStart="8dp"
                 app:layout_constraintStart_toEndOf="@id/imv_icon"
                 app:layout_constraintTop_toBottomOf="@id/tv_address"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/rubik_regular"
+                android:textColor="@color/MediumGray"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/tv_quantity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/default_padding_small"
+                android:gravity="center"
                 android:text="quantity"
                 app:layout_constraintStart_toStartOf="@id/imv_icon"
                 app:layout_constraintTop_toBottomOf="@id/imv_icon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/rubik_medium"
+                android:textColor="@color/MediumGray"
+                android:textSize="16sp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
