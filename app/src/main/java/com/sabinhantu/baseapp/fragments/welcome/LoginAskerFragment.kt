@@ -1,5 +1,6 @@
 package com.sabinhantu.baseapp.fragments.welcome
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.gson.JsonObject
 import com.sabinhantu.baseapp.R
+import com.sabinhantu.baseapp.activities.asker.HomeAskerActivity
+import com.sabinhantu.baseapp.activities.donor.HomeDonorActivity
 import com.sabinhantu.baseapp.data.NetworkEventBus
 import com.sabinhantu.baseapp.data.NetworkState
 import com.sabinhantu.baseapp.data.RetrofitClientInstance
@@ -49,6 +52,9 @@ class LoginAskerFragment : SABBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+
+        edt_email.setText("andrei@gmail.com")
+        edt_password.setText("parola")
     }
 
     private fun initViews() {
@@ -77,11 +83,11 @@ class LoginAskerFragment : SABBaseFragment() {
             override fun onResponse(call: Call<Volunteer>, response: Response<Volunteer>) {
                 "response=${response.body().toString()}".logErrorMessage()
 
-                Toast.makeText(
-                    context,
-                    "Login SUCCESSS",
-                    Toast.LENGTH_SHORT
-                ).show()
+//                Toast.makeText(
+//                    context,
+//                    "Login SUCCESSS",
+//                    Toast.LENGTH_SHORT
+//                ).show()
 
 
                 context?.let { ctx ->
@@ -89,6 +95,8 @@ class LoginAskerFragment : SABBaseFragment() {
                         UtilSharedPreferences.saveUser(ctx,it)
                     }
                 }
+
+                intentToHomeAskerActivity()
 
                 context?.let { ctx ->
                     UtilSharedPreferences.getUserId(ctx).logErrorMessage()
@@ -105,6 +113,12 @@ class LoginAskerFragment : SABBaseFragment() {
             }
 
         })
+    }
+
+    fun intentToHomeAskerActivity() {
+        val intent = Intent(context, HomeAskerActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 
     /**

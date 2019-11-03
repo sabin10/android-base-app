@@ -69,8 +69,6 @@ class HomeDonorActivity : SABBaseActivity() {
             return@setOnTabSelectedListener  true
         }
 
-
-
     }
 
 
