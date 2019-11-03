@@ -68,12 +68,26 @@ class RegisterStep2AskerFramgnet : SABBaseFragment() {
                     override fun onResponse(call: Call<Volunteer>, response: Response<Volunteer>) {
                         "response=${response.body().toString()}".logErrorMessage()
 
+                        if(response.isSuccessful){
+                            Toast.makeText(
+                                context,
+                                "Register SUCCESSS",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
                         intentToHomeAskerActivity()
 
-                        context?.let { ctx ->
-                            response.body()?.id?.let {
-                                UtilSharedPreferences.saveUser(ctx,it)
+                            context?.let { ctx ->
+                                response.body()?.id?.let {
+                                    UtilSharedPreferences.saveUser(ctx,it)
+                                }
                             }
+
+                            val intent = Intent(context, HomeAskerActivity::class.java)
+                            startActivity(intent)
+                            activity?.finish()
+                        }else {
+                            Toast.makeText(context,"code=${response.code()} message=${response.message()}",Toast.LENGTH_SHORT).show()
                         }
                     }
 

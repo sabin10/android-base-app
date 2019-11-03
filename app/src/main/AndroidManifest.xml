@@ -18,6 +18,8 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".activities.asker.HomeAskerActivity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".activities.details.DonationDetailsActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.SplashScreenActivity"
             android:configChanges="locale|layoutDirection"

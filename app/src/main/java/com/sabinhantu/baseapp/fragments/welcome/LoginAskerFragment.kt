@@ -83,20 +83,25 @@ class LoginAskerFragment : SABBaseFragment() {
             override fun onResponse(call: Call<Volunteer>, response: Response<Volunteer>) {
                 "response=${response.body().toString()}".logErrorMessage()
 
-                Toast.makeText(
-                    context,
-                    "Login SUCCESSS",
-                    Toast.LENGTH_SHORT
-                ).show()
+                if(response.isSuccessful){
+
+                    Toast.makeText(
+                        context,
+                        "Login SUCCESSS",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
 
-                context?.let { ctx ->
-                    response.body()?.id?.let {
-                        UtilSharedPreferences.saveUser(ctx,it)
+                    context?.let { ctx ->
+                        response.body()?.id?.let {
+                            UtilSharedPreferences.saveUser(ctx,it)
+                        }
                     }
-                }
 
-                intentToHomeAskerActivity()
+                    intentToHomeAskerActivity()
+                }else {
+                    Toast.makeText(context,"code=${response.code()} message=${response.message()}",Toast.LENGTH_SHORT).show()
+                }
 
             }
 
