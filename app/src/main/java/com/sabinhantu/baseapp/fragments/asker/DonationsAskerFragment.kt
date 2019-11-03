@@ -40,7 +40,8 @@ class DonationsAskerFragment : SABBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rv_donations.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        rv_donations.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
 //        fetchDonations()
     }
@@ -61,22 +62,23 @@ class DonationsAskerFragment : SABBaseFragment() {
                 if(response.isSuccessful){
 
                     "response=${response.body().toString()}".logErrorMessage()
-                    Toast.makeText(
-                        context,
-                        "Get food request SUCCESSS",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        "Get food request SUCCESSS",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
 
                     response.body()?.let {
                         adapter = DonationAdapter(it)
                         adapter.onClickItem = { companyId, description, location, status ->
+
+//                            Toast.makeText(context, "am apasatttt", Toast.LENGTH_LONG).show()
 
                             val fragmentBundle = Bundle()
 //                            "companyId=$companyId".logErrorMessage()
                             companyId?.let { it1 -> fragmentBundle.putLong("companyId", it1) }
                             description?.let { it1 -> fragmentBundle.putString("description", it1) }
                             status?.let { it1 -> fragmentBundle.putString("status", it1) }
-
 
                             val intent = Intent(activity, DonationDetailsActivity::class.java)
                             intent.putExtra("bundle",fragmentBundle)

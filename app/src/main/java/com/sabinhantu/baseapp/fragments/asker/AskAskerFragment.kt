@@ -77,14 +77,12 @@ class AskAskerFragment : SABBaseFragment() {
 
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                 if (response.isSuccessful) {
-                  //  showAlertDialogOnSucces()
-                    Toast.makeText(
-                        context,
-                        "Ask for food SUCCESS",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-
+                    showAlertDialogOnSucces()
+//                    Toast.makeText(
+//                        context,
+//                        "Ask for food SUCCESS",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
                 }
             }
 
