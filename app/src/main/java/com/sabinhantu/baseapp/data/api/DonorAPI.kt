@@ -6,10 +6,7 @@ import com.sabinhantu.baseapp.model.Donor
 import com.sabinhantu.baseapp.model.Offer
 import com.sabinhantu.baseapp.model.RequestFood
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface DonorAPI {
 
@@ -19,12 +16,13 @@ interface DonorAPI {
     @GET("donor/show-requests")
     fun getRequests(): Call<ArrayList<RequestFood>>
 
-    @GET("/donor/profile")
+    @GET("donor/profile")
     fun getDonorProfile(
         @Query("donorId") donorId: String
     ): Call<Donor>
 
-
+    @PUT("donor/provide")
+    fun provide(@Body data: ProvideRequest): Call<ProvideResponse>
 }
 
 data class OfferRequest (
@@ -52,4 +50,23 @@ data class OfferRequest (
     @SerializedName("description")
     @Expose
     var description: String
+)
+
+
+data class ProvideResponse(
+    @SerializedName("quantity")
+    @Expose val quantity: Int,
+
+    @SerializedName("reserved")
+    @Expose val reservedQuantity: Int
+)
+
+data class ProvideRequest(
+    @SerializedName("reserved")
+    @Expose
+    var reserved: Int,
+
+    @SerializedName("requestId")
+    @Expose
+    var requestId: Long
 )

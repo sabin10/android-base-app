@@ -42,6 +42,10 @@ class RaisesDonorFragment : SABBaseFragment() {
         rv_requests.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
         fetchRequests()
     }
 

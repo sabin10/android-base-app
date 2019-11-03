@@ -50,7 +50,7 @@ class RequestAdapter(
 
             requestsList[position].quantity?.let { quantity ->
                 requestsList[position].alreadyTaken?.let { alreadyTaken ->
-                    tvQuantity?.text = "Still need ${quantity-alreadyTaken}/${quantity} packages of food"
+                    tvQuantity?.text = "Still need ${quantity.minus(alreadyTaken)}/${quantity} packages of food"
 
                 }
 
@@ -64,7 +64,7 @@ class RequestAdapter(
                 }
 
                 onClickItem?.invoke(
-                    requestsList[position].volunteerId,
+                    requestsList[position].id,
                     requestsList[position].description,
                     requestsList[position].address,
                     status
