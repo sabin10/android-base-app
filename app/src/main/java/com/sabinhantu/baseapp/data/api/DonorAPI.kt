@@ -6,10 +6,7 @@ import com.sabinhantu.baseapp.model.Donor
 import com.sabinhantu.baseapp.model.Offer
 import com.sabinhantu.baseapp.model.RequestFood
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface DonorAPI {
 
@@ -24,7 +21,7 @@ interface DonorAPI {
         @Query("donorId") donorId: String
     ): Call<Donor>
 
-    @POST("donor/provide")
+    @PUT("donor/provide")
     fun provide(@Body data: ProvideRequest): Call<ProvideResponse>
 }
 
