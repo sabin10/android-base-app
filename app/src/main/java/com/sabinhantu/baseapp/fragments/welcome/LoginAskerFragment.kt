@@ -49,6 +49,8 @@ class LoginAskerFragment : SABBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+        edt_email.setText("andrei@gmail.com")
+        edt_password.setText("parola")
     }
 
     private fun initViews() {

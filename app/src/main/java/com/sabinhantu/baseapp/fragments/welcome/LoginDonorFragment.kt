@@ -57,6 +57,8 @@ class LoginDonorFragment : SABBaseFragment() {
     }
 
     private fun initViews() {
+        edt_email.setText("bogdand@gmail.com")
+        edt_password.setText("parola")
         btn_login.setOnClickListener {
             login()
         }
@@ -72,8 +74,6 @@ class LoginDonorFragment : SABBaseFragment() {
 
     private fun login() {
 //        Toast.makeText(context,"Login !!!",Toast.LENGTH_LONG).show()
-
-        // TODO: MAKE LOGIN
         toHomeDonor()
     }
 
@@ -90,11 +90,11 @@ class LoginDonorFragment : SABBaseFragment() {
                 if(response.isSuccessful){
 
                     "response=${response.body().toString()}".logErrorMessage()
-                    Toast.makeText(
-                        context,
-                        "Login SUCCESSS",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        "Login SUCCESSS",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
 
                     context?.let { ctx ->
                         response.body()?.id?.let {
