@@ -1,14 +1,17 @@
 package com.sabinhantu.baseapp.fragments.donor
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.sabinhantu.baseapp.R
+import com.sabinhantu.baseapp.activities.welcome.WelcomeActivity
 import com.sabinhantu.baseapp.data.RetrofitClientInstance
 import com.sabinhantu.baseapp.data.api.DonorAPI
 import com.sabinhantu.baseapp.fragments.SABBaseFragment
+import com.sabinhantu.baseapp.helper.Constants
 import com.sabinhantu.baseapp.helper.UtilSharedPreferences
 import com.sabinhantu.baseapp.model.Donor
 import com.sabinhantu.baseapp.model.Offer
@@ -31,11 +34,18 @@ class ProfileDonorFragment : SABBaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        makeApiCall()
+        initViews()
     }
 
     fun initViews() {
         makeApiCall()
+
+        btn_logout.setOnClickListener {
+            val intent = Intent(context, WelcomeActivity::class.java)
+            intent.putExtra(Constants.FragmentTags.TAG_FRAGMENT, Constants.FragmentTags.TAG_FRAGMENT_LOGIN_DONOR)
+            startActivity(intent)
+            activity?.finish()
+        }
     }
 
     fun makeApiCall() {
