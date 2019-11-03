@@ -71,13 +71,16 @@ class DonateDonorFragment : SABBaseFragment() {
 
             override fun onResponse(call: Call<Offer>, response: Response<Offer>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(
-                        context,
-                        "Ask for food SUCCESS",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        "Ask for food SUCCESS",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
                 }
-//                showAlertDialogOnSucces()
+                showAlertDialogOnSucces()
+                et_date.setText("")
+                et_number_packages.setText("")
+                et_description.setText("")
             }
         })
     }

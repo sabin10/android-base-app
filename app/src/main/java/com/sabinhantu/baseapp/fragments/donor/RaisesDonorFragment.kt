@@ -1,5 +1,6 @@
 package com.sabinhantu.baseapp.fragments.donor
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sabinhantu.baseapp.R
+import com.sabinhantu.baseapp.activities.details.DonationDetailsActivity
+import com.sabinhantu.baseapp.activities.details.RequestDetailsActivity
 import com.sabinhantu.baseapp.adapters.RequestAdapter
 import com.sabinhantu.baseapp.data.RetrofitClientInstance
 import com.sabinhantu.baseapp.data.api.DonorAPI
@@ -53,14 +56,26 @@ class RaisesDonorFragment : SABBaseFragment() {
                 if(response.isSuccessful){
 
                     "response=${response.body().toString()}".logErrorMessage()
-                    Toast.makeText(
-                        context,
-                        "Get food request SUCCESSS",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        "Get food request SUCCESSS",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
 
                     response.body()?.let {
                         adapter = RequestAdapter(it)
+                        adapter.onClickItem = { companyId, description, location, status ->
+
+                            val fragmentBundle = Bundle()
+//                            "companyId=$companyId".logErrorMessage()
+                            companyId?.let { it1 -> fragmentBundle.putLong("companyId", it1) }
+                            description?.let { it1 -> fragmentBundle.putString("description", it1) }
+                            status?.let { it1 -> fragmentBundle.putString("status", it1) }
+
+                            val intent = Intent(activity, RequestDetailsActivity::class.java)
+                            intent.putExtra("bundle",fragmentBundle)
+                            startActivity(intent)
+                        }
                         rv_requests.adapter = adapter
                     }
 
